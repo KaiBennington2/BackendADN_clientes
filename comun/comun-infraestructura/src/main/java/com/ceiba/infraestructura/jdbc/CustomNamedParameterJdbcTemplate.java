@@ -2,6 +2,7 @@ package com.ceiba.infraestructura.jdbc;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.util.Map;
 
 import com.ceiba.infraestructura.excepcion.ExcepcionTecnica;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -36,6 +37,12 @@ public class CustomNamedParameterJdbcTemplate {
 	
 	public void actualizar(Object object,String sql) {
 		MapSqlParameterSource paramSource = crearParametros(object);
+		this.namedParameterJdbcTemplate.update(sql, paramSource);
+	}
+
+	public void actualizarParametrosExtras(Object object, String sql, Map<String,Object> paramsExtras) {
+		MapSqlParameterSource paramSource = crearParametros(object);
+		paramSource.addValues(paramsExtras);
 		this.namedParameterJdbcTemplate.update(sql, paramSource);
 	}
 	

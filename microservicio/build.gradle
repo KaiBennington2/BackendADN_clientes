@@ -56,6 +56,11 @@ allprojects {
 			"org.springdoc:springdoc-openapi-ui:1.6.8",
 	]
 
+	project.ext.swagger = [
+			"io.springfox:springfox-swagger-ui:2.9.2",
+			"io.springfox:springfox-swagger2:2.9.2"
+	]
+
 	project.ext.db = ["mysql:mysql-connector-java:5.1.44"]
 
 	project.ext.springbootjdbc = ["org.springframework.boot:spring-boot-starter-jdbc:${springBootVersion}"]
@@ -63,6 +68,11 @@ allprojects {
 	project.ext.flywaytest = ["org.flywaydb.flyway-test-extensions:flyway-spring-test:7.0.0"]
 
 	project.ext.h2 = ["com.h2database:h2:1.4.200"]
+
+	project.ext.springclouddependencies = ["org.springframework.cloud:spring-cloud-dependencies:2021.0.2"]
+	project.ext.openfeign = ["org.springframework.cloud:spring-cloud-starter-openfeign:3.1.2"]
+	project.ext.eurekaDiscoveryClient = ["org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:3.1.2"]
+
 }
 
 group = 'com.ceiba'
@@ -86,10 +96,12 @@ dependencies {
 	implementation project.ext.springbootundertow
 	implementation project.ext.flyway
 
+	implementation project.ext.springclouddependencies
+	implementation project.ext.openfeign
+	implementation project.ext.eurekaDiscoveryClient
+
 	implementation project(':infraestructura')
 }
 
 bootJar {
-
-
 }

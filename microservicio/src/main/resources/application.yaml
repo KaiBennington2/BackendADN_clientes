@@ -21,3 +21,5 @@ spring:
       password: root
       hikari:
          poolName: pool
+   application:
+      name: servicioClientes
